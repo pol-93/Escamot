@@ -1,0 +1,202 @@
+@import './Helper/variables';
+@import './fonts/font';
+@import '~bootstrap';
+@import 'swiper/css/bundle';
+
+/* swiper general overrides */
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+/* Header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 123456;
+    box-shadow: 0px 3px 12px -1px #8b8b8b;
+    background-color: rgb(33 37 41 / 50%);
+}
+
+.main-logo {
+    max-width: 85px;
+    padding: 10px;
+}
+
+.user-menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.user-menu .icon-search {
+    width: 24px;
+    height: 24px;
+    fill: #888;
+    vertical-align: bottom;
+}
+
+.user-menu li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 35px;
+}
+
+.user-menu .icon-user {
+    width: 24px;
+    height: 24px;
+    fill: #888;
+    vertical-align: bottom;
+}
+
+.menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
+    list-style-type: none;
+    font-family: Fjalla-One;
+    font-size: 20px;
+    color: #888;
+    margin-bottom: 0px;
+}
+
+.menu li {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* FiHeader */
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide.catalunya {
+    overflow: hidden;
+}
+
+.catalunya {
+    z-index: 1;
+    background: linear-gradient(-45deg, #836c0e, #b30100);
+    background-size: 250% 250%;
+    width: 100%;
+    height: 100vh;
+    -webkit-animation: animate 15s linear infinite;
+    -moz-animation: animate 15s linear infinite;
+    -o-animation: animate 15s linear infinite;
+    animation: animate 15s linear infinite;
+    animation-direction: alternate-reverse;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 50%;
+        transform: scale(1);
+    }
+    50% {
+        background-position: 100% 50%;
+        transform: scale(1.2);
+    }
+    100% {
+        background-position: 0 50%;
+        transform: scale(1);
+    }
+}
+
+
+/* manifest */
+
+.manifest {
+    font-family: "Coco-sharp-bold", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #bdbdbd;
+}

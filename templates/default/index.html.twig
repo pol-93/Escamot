@@ -1,20 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}Escamot{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/xampp/htdocs/escamot/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/xampp/htdocs/escamot/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+ <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+        <div class="catalunya">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="manifest">
+                    <p>
+                      Catalunya triomfant,
+                      tornarà a ser rica i plena.
+                      Endarrere aquesta gent
+                      tan ufana i tan superba.
+                    </p>
+                    <p>            
+                      Bon cop de falç!
+                      Bon cop de falç, Defensors de la terra!
+                      Bon cop de falç!
+                    </p>
+                    <p>
+                      Ara és hora, segadors.
+                      Ara és hora d'estar alerta.
+                      Per quan vingui un altre juny
+                      esmolem ben bé les eines.
+                    </p>
+                    <p>
+                      Bon cop de falç!
+                      Bon cop de falç, Defensors de la terra!
+                      Bon cop de falç!
+                    </p>
+                    <p>
+                      Que tremoli l'enemic
+                      en veient la nostra ensenya.
+                      Com fem caure espigues d'or,
+                      quan convé seguem cadenes.
+                    </p>
+                    <p>
+                      Bon cop de falç!
+                      Bon cop de falç, Defensors de la terra!
+                      Bon cop de falç!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-color:grey">Slide 2</div>
+        <div class="swiper-slide" style="background-color:brown">Slide 3</div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
 {% endblock %}
