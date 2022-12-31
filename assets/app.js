@@ -18,7 +18,7 @@ import $ from "jquery";
 
 
 import HomeLanding from './home';
-HomeLanding().login.init();
+HomeLanding().home.init();
 
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything

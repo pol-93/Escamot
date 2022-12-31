@@ -1,3 +1,15 @@
 index:
     path: /
     controller: App\Controller\DefaultController::index
+
+login:
+    path: /login
+    controller: App\Controller\DefaultController::index
+
+registration:
+    path: /registration
+    controller: App\Controller\RegistrationController::index
+
+success:
+    path: /success
+    controller: App\Controller\successController::index
