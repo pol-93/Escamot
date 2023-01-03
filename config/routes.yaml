@@ -2,9 +2,9 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
-login:
+app_login:
     path: /login
-    controller: App\Controller\DefaultController::index
+    controller: App\Controller\LoginController::index
 
 registration:
     path: /registration
@@ -12,4 +12,7 @@ registration:
 
 success:
     path: /success
-    controller: App\Controller\successController::index
+    controller: App\Controller\SuccessController::index
+
+logout:
+    path: /logout

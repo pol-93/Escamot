@@ -25,6 +25,7 @@ class RegistrationController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             
             $user->setRoles(['ROLE_USER']);
+            $user->setActive(false);
             $encoded = $passwordHasher->hashPassword($user, $user->getPassword());
             $user->setPassword($encoded);
             $em = $doctrine->getManager();
