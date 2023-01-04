@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use App\Entity\User;
 use App\Form\RegisterType;
@@ -32,7 +33,10 @@ class RegistrationController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('success');
+            //return $this->redirectToRoute('success');
+            $session = new Session();
+            $session->getFlashBag()->add('Message',"Un administrador haura d'aporbar la teva solicitud");
+            return $this->redirectToRoute('registration');
         }
         return $this->render('registration/index.html.twig', [
             'form' => $form->createView(),
