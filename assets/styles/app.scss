@@ -21,6 +21,21 @@ body {
     padding: 0;
 }
 
+a {
+    font-family: "Fjalla-One", Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: rgb(95, 95, 95);
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -200,4 +215,115 @@ nav {
     font-size: 20px;
     letter-spacing: 0.1em;
     color: #bdbdbd;
+}
+
+
+/*Login*/
+
+.Login {
+    height: 100%;
+    font-family: "Coco-sharp-light", Arial, Helvetica, sans-serif;
+}
+
+.Login .container {
+    height: 100%;
+}
+
+.Login .row {
+    height: 100%;
+}
+
+.Login .form-group {
+    position: relative;
+}
+
+.Login .inset {
+    padding: 20px 30px 2px 30px;
+    box-shadow: 0 0 10px 0 #000;
+    border-radius: 5px;
+}
+
+.form-group input {
+    text-align: center;
+}
+
+.form-group input:focus~label {
+    border-radius: 5px;
+    font-size: 10px;
+    letter-spacing: 0Em;
+    -webkit-transform: translate(-50%, -17px);
+    -moz-transform: translate(-50%, -17px);
+    -ms-transform: translate(-50%, -17px);
+    -o-transform: translate(-50%, -17px);
+    transform: translate(-50%, -17px);
+    border: 1px solid #fff;
+}
+
+.Login .title {
+    font-family: "Fjalla-One", Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+
+/* form-control overrides */
+
+.form-group label {
+    position: absolute;
+    margin-bottom: 0rem;
+    letter-spacing: 0.06em;
+    top: 7px;
+    background-color: white;
+    display: inline;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0px);
+    -moz-transform: translate(-50%, 0px);
+    -ms-transform: translate(-50%, 0px);
+    -o-transform: translate(-50%, 0px);
+    transform: translate(-50%, 0px);
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    user-select: none;
+    pointer-events: none;
+    -webkit-transition: all 10ms ease-in;
+    -o-transition: all 10ms ease-in;
+    -moz-transition: all 10ms ease-in;
+    transition: all 10ms ease-in;
+}
+
+.form-control {
+    padding: 10px 15px 5px 15px;
+    font-size: 13px;
+}
+
+.form-control:focus,
+.form-group.text-entered .form-control {
+    color: #212529;
+    border-color: #fff;
+    box-shadow: none;
+    padding: 10px 15px 5px 15px;
+    font-size: 13px;
+}
+
+.form-group.text-entered label {
+    border-radius: 5px;
+    font-size: 10px;
+    letter-spacing: 0Em;
+    -webkit-transform: translate(-50%, -17px);
+    -moz-transform: translate(-50%, -17px);
+    -ms-transform: translate(-50%, -17px);
+    -o-transform: translate(-50%, -17px);
+    transform: translate(-50%, -17px);
+    border: 1px solid #fff;
+    font-size: 10px;
+}
+
+
+/* Alert overrides */
+
+.alert-danger {
+    background-color: #f44336;
+    color: #fff;
+    border-radius: 0px;
 }

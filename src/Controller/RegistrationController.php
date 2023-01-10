@@ -12,11 +12,12 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 use App\Entity\User;
 use App\Form\RegisterType;
+use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\Google\GoogleAuthenticatorInterface;
 
 class RegistrationController extends AbstractController
 {
    
-    public function index(Request $request, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine): Response
+    public function index(Request $request, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine, GoogleAuthenticatorInterface $authentication): Response
     {
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
@@ -29,6 +30,11 @@ class RegistrationController extends AbstractController
             $user->setActive(false);
             $encoded = $passwordHasher->hashPassword($user, $user->getPassword());
             $user->setPassword($encoded);
+
+            $secret = $authentication->generateSecret();
+            $user->setGoogleAuthenticatorSecret($secret);
+
+
             $em = $doctrine->getManager();
             $em->persist($user);
             $em->flush();

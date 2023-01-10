@@ -13,3 +13,11 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Coco-sharp-light';
+    src: url('CocoSharpLight.eot');
+    src: local('CocoSharpLight'), local('CocoSharpLight'), url('CocoSharpLight.eot?#iefix') format('embedded-opentype'), url('CocoSharpLight.woff2') format('woff2'), url('CocoSharpLight.ttf') format("truetype"), url('CocoSharpLight.woff') format('woff'), url('CocoSharpLight.svg#CocoSharpTrial-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -16,12 +16,16 @@ security:
             security: false
         main:
             lazy: true
+            user_checker: App\Security\UserChecker
             provider: app_user_provider
             form_login:
                 # "app_login" is the name of the route created previously
                 login_path: app_login
                 check_path: app_login
                 default_target_path: success
+            two_factor:
+                auth_form_path: 2fa_login    # The route name you have used in the routes.yaml
+                check_path: 2fa_login_check  # The route name you have used in the routes.yaml
             logout:
                 path: /logout
                 target: /
@@ -35,6 +39,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/logout, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        # This ensures that the form can only be accessed when two-factor authentication is in progress.
+        - { path: ^/2fa, role: IS_AUTHENTICATED_2FA_IN_PROGRESS }
         - { path: ^/success, roles: ROLE_USER }
 
 when@test:

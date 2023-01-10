@@ -14,6 +14,13 @@ export default function() {
                 //self.homeSlider.AdjustWindow($('[data-module="loginSlider"]'));
             });
             self.homeSlider.init($('[data-module="homeSlider"]'));
+
+            $(function() {
+                $('[data-module]').each(function() {
+                    Application.module[$(this).attr('data-module')]($(this));
+                });
+            });
+
         },
         homeSlider: {
             init: function($module) {
@@ -72,6 +79,27 @@ export default function() {
             }
         },
     }
+
+    Application.module = {
+        form: function($module) {
+            var self = this;
+            $module.find("input").on('keyup keypress blur change', function(e) {
+                self.checkEnteredText($(this));
+            });
+            $module.find("input").each(function() {
+                self.checkEnteredText($(this));
+            });
+        },
+        checkEnteredText: function($module) {
+            if ($module.val().length > 0) {
+                $module.parent().addClass("text-entered");
+            } else {
+                $module.parent().removeClass("text-entered");
+            }
+        }
+
+    }
+
 
     return Application;
 };
