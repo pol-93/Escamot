@@ -1,24 +1,39 @@
 
+{#
 <p>Switch authentication method:
-            <a href="/2fa?preferProvider=google">google</a>
-    </p>
+    <a href="/2fa?preferProvider=google">google</a>
+</p>
+#}
+{% extends 'base.html.twig' %}
 
-<p class="label"><label for="_auth_code">Authentication Code google:</label></p>
+{% block title %} 2FA {% endblock %}
+{% block header %}
+{% endblock %}
+{% block body %}
 
 <img id="imageQrCode" src="{{ qrCode }}" alt="Qr code" name="imageQrCode" />
 
-<form class="form" action="/2fa_check" method="post">
-    <p class="widget">
-        <input
-            id="_auth_code"
-            type="text"
-            name="_auth_code"
-            autocomplete="one-time-code"
-            autofocus
-                    />
-    </p>
+<section class="form" data-module="form">
+    <div class="container text-center">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 ">
+                <div class="inset">
+                <h1 class="title"> Autenticació, Codi de google:  </h1>
+                <form action="/2fa_check" method="post">
+                    <div id="2faLogin">
+                        <div class="form-group row mb-4">
+                            <input class="form-control" style="font-family:arial" id="_auth_code" type="text" name="_auth_code" autocomplete="one-time-code" autofocus />
+                            <label class="form-label" style="font-family:arial" for="_auth_code">Codig 2FA</label>
+                        </div>
+                        <div class="row mb-4">
+                            <button type="submit" class="btn btn-dark btn-block ">Accedir</button>
+                        </div>
+                        <p class="cancel"><a href="/logout">Cancel</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <p class="submit"><input type="submit" value="Login" /></p>
-</form>
-
-<p class="cancel"><a href="/logout">Cancel</a></p>
+{% endblock %}

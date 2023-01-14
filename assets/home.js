@@ -88,9 +88,17 @@ export default function() {
             });
             $module.find("input").each(function() {
                 self.checkEnteredText($(this));
+                $(this).parent().prepend($(this).detach());
             });
+            $module.find("button").each(function() {
+                $(this).removeClass();
+                $(this).addClass("btn btn-dark btn-block form-control");
+            });
+            $module.find("form>div").removeClass("text-entered");
+            $module.animate({ opacity: 1 }, 1000);
         },
         checkEnteredText: function($module) {
+            console.log("ep");
             if ($module.val().length > 0) {
                 $module.parent().addClass("text-entered");
             } else {

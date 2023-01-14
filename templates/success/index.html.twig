@@ -1,15 +1,48 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block title %} Panell de control {% endblock %}
 
-{% block header %}
-    <div>
-        <a href="{{ path('logout') }}">tancar sessió</a>
-    </div>
-{% endblock %}
+
 
 {% block body %}
 
-{{ dump(app.user) }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1> Manifest </h1>
+                <form action="../../form-result.php" target="_blank">
+
+                <p>Actualitzar Manifest:</p>
+
+                <p><textarea name="mensaje"> 
+                {{ LatestUpdate }}
+                </textarea></p>
+
+                <p><input type="submit" value="actualitzar manifest"></p>
+
+                </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1> Les meves actualitzacions </h1>
+                {% for MyUpdate in MyUpdates %}
+                <div>
+                    {{ MyUpdate }}
+                    
+                   
+                   
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{# {{ dump(app.user) }} #}
 
 {% endblock %}

@@ -30,10 +30,12 @@ a {
     -o-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 a:hover {
     color: rgb(95, 95, 95);
+    letter-spacing: 0.05em;
 }
 
 .sr-only {
@@ -220,34 +222,35 @@ nav {
 
 /*Login*/
 
-.Login {
+.form {
     height: 100%;
     font-family: "Coco-sharp-light", Arial, Helvetica, sans-serif;
+    opacity: 0;
 }
 
-.Login .container {
+.form .container {
     height: 100%;
 }
 
-.Login .row {
+.form>.container>.row {
     height: 100%;
 }
 
-.Login .form-group {
+.form form>div>div {
     position: relative;
 }
 
-.Login .inset {
+.form .inset {
     padding: 20px 30px 2px 30px;
     box-shadow: 0 0 10px 0 #000;
     border-radius: 5px;
 }
 
-.form-group input {
+.form form input {
     text-align: center;
 }
 
-.form-group input:focus~label {
+.form form input:focus~label {
     border-radius: 5px;
     font-size: 10px;
     letter-spacing: 0Em;
@@ -259,7 +262,7 @@ nav {
     border: 1px solid #fff;
 }
 
-.Login .title {
+.form .title {
     font-family: "Fjalla-One", Arial, Helvetica, sans-serif;
     font-size: 25px;
     margin-bottom: 30px;
@@ -268,7 +271,7 @@ nav {
 
 /* form-control overrides */
 
-.form-group label {
+.form form>div label {
     position: absolute;
     margin-bottom: 0rem;
     letter-spacing: 0.06em;
@@ -292,13 +295,13 @@ nav {
     transition: all 10ms ease-in;
 }
 
-.form-control {
+.form form>div input {
     padding: 10px 15px 5px 15px;
     font-size: 13px;
 }
 
-.form-control:focus,
-.form-group.text-entered .form-control {
+.form form>div input:focus,
+.form .text-entered input {
     color: #212529;
     border-color: #fff;
     box-shadow: none;
@@ -306,7 +309,7 @@ nav {
     font-size: 13px;
 }
 
-.form-group.text-entered label {
+.form .text-entered label {
     border-radius: 5px;
     font-size: 10px;
     letter-spacing: 0Em;
@@ -317,6 +320,10 @@ nav {
     transform: translate(-50%, -17px);
     border: 1px solid #fff;
     font-size: 10px;
+}
+
+.form .invalid-feedback {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 

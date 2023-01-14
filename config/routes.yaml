@@ -14,6 +14,18 @@ success:
     path: /success
     controller: App\Controller\SuccessController::index
 
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::index
+
+Blog:
+    path: /blog
+    controller: App\Controller\BlogController::index
+
+Newsletter:
+    path: /newsletter
+    controller: App\Controller\NewsletterController::index
+
 logout:
     path: /logout
 
