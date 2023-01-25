@@ -1,5 +1,6 @@
 import $ from "jquery";
-import Swiper from "swiper";
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 
 
 export default function() {
@@ -17,6 +18,7 @@ export default function() {
 
             $(function() {
                 $('[data-module]').each(function() {
+                    console.log($(this).attr('data-module'));
                     Application.module[$(this).attr('data-module')]($(this));
                 });
             });
@@ -24,7 +26,6 @@ export default function() {
         },
         homeSlider: {
             init: function($module) {
-                //this.AdjustWindow($module);
                 this.initSwiper($module);
                 this.getmouseWheel($module);
             },
@@ -56,26 +57,21 @@ export default function() {
                 document.addEventListener('mousewheel', DoSomething);
                 document.addEventListener('DOMMouseScroll', DoSomething);
             },
-            AdjustWindow: function($module) {
-                var ClientWindowHeight = window.innerHeight,
-                    ClientWindowWidth = window.innerWidth;
-                $.each($module.find('.swiper-slide'), function(idx, el) {
-                    $(el).find(".bg").css("height", ClientWindowHeight);
-                    $(el).find(".bg").css("width", ClientWindowWidth);
-                });
-                $('.swiper-container').first().css("height", ClientWindowHeight);
-                $('.swiper-container').first().css("width", ClientWindowWidth);
-            },
+
             initSwiper: function($module) {
                 console.log($module);
                 console.log("bon dia Pol");
+
                 var swiper = new Swiper($module[0], {
                     direction: "vertical",
+                    speed: 1000,
+                    parallax: true,
                     pagination: {
                         el: ".swiper-pagination",
                         clickable: true,
                     },
                 });
+
             }
         },
     }
@@ -94,17 +90,57 @@ export default function() {
                 $(this).removeClass();
                 $(this).addClass("btn btn-dark btn-block form-control");
             });
+            var desplegable = $module.find(".select-transformation").data("replacedelement");
+            $module.find(".select-transformation .option").on("click", function() {
+                var $parentChildren = $(this).parent().parent().children();
+                console.log($parentChildren);
+                $parentChildren.each(function(element, self) {
+                    $(self).find(".option").removeClass("active");
+                });
+                $(this).addClass("active");
+                var optiontoCheck = $(this).data("value");
+                console.log(optiontoCheck);
+
+                $(desplegable).val(optiontoCheck);
+
+                console.log($(desplegable).parent());
+
+            });
+            if (desplegable) {
+                $(desplegable).parent().hide();
+                $module.find(".select-transformation").detach().insertBefore($(desplegable).parent().parent().find("Button[type=submit]"));
+            }
+
             $module.find("form>div").removeClass("text-entered");
             $module.animate({ opacity: 1 }, 1000);
         },
         checkEnteredText: function($module) {
-            console.log("ep");
             if ($module.val().length > 0) {
                 $module.parent().addClass("text-entered");
             } else {
                 $module.parent().removeClass("text-entered");
             }
+        },
+        aceEditor: function($module) {
+            var ace = require('brace');
+            require('brace/mode/javascript');
+            require('brace/theme/monokai');
+            var editor = ace.edit('javascript-editor');
+            editor.getSession().setMode('ace/mode/javascript');
+            editor.setTheme('ace/theme/monokai');
+            editor.getSession().setUseWorker(false);
+            console.log(editor.getValue());
+            $module.find('form').on('submit', function() {
+                $(this).find("#content").val(editor.getValue());
+                return true;
+            });
+        },
+        alertMessages: function($module) {
+            $module.fadeIn();
+            setTimeout(function() { $module.fadeOut(); }, 5000);
         }
+
+
 
     }
 

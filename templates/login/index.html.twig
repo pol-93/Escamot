@@ -6,7 +6,7 @@
 {% block body %}
     
     
-    <section class="form" data-module="form">
+    <section class="form form-maxheight" data-module="form">
         <div class="container text-center">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 ">
@@ -15,6 +15,9 @@
                         {% if error %}
                             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                         {% endif %}
+                        {% for message in app.session.flashbag().get('Message')  %}
+                            <h1>{{ message }}</h1>
+                        {% endfor %}
                         <form action="{{ path('app_login') }}" method="post">
                             <div id="Login">
                             <!-- Email input -->

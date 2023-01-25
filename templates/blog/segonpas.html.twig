@@ -1,0 +1,47 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block body %}
+
+
+<section class="admin-header-suply form" data-module="form">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <section class="wrap">
+                    <h1 class="title"> Crear Entrada </h1>
+                    <div class="select-transformation" data-replacedelement="#blogtemplate_templatetype">
+                        <h3> Seleccionar plantilla </h3>
+                        <div class="inset">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="option" data-value="Plantilla1"> <img src="{{ asset('build/images/plantilla1.png') }}" alt="plantilla numero 1" class="plantilla"> </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="option" data-value="Plantilla2"> <img src="{{ asset('build/images/plantilla2.png') }}" alt="plantilla numero 2" class="plantilla"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title"> Històric d'entrades </h1>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

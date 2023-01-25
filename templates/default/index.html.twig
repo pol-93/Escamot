@@ -9,53 +9,28 @@
 <section class="module" data-module="homeSlider">
 -->
  <div class="swiper mySwiper" data-module="homeSlider">
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper" >
         <div class="swiper-slide">
-        <div class="catalunya">
+          <div class="catalunya">
             <div class="container">
               <div class="row">
                 <div class="col">
-                  <div class="manifest">
-                    <p>
-                      Catalunya triomfant,
-                      tornarà a ser rica i plena.
-                      Endarrere aquesta gent
-                      tan ufana i tan superba.
-                    </p>
-                    <p>            
-                      Bon cop de falç!
-                      Bon cop de falç, Defensors de la terra!
-                      Bon cop de falç!
-                    </p>
-                    <p>
-                      Ara és hora, segadors.
-                      Ara és hora d'estar alerta.
-                      Per quan vingui un altre juny
-                      esmolem ben bé les eines.
-                    </p>
-                    <p>
-                      Bon cop de falç!
-                      Bon cop de falç, Defensors de la terra!
-                      Bon cop de falç!
-                    </p>
-                    <p>
-                      Que tremoli l'enemic
-                      en veient la nostra ensenya.
-                      Com fem caure espigues d'or,
-                      quan convé seguem cadenes.
-                    </p>
-                    <p>
-                      Bon cop de falç!
-                      Bon cop de falç, Defensors de la terra!
-                      Bon cop de falç!
-                    </p>
+                  <div class="manifest" data-swiper-parallax-scale="0.15" data-swiper-parallax-opacity="0.5" data-swiper-parallax-duration="1500">
+                    {{ LatestUpdate | raw }}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="swiper-slide" style="background-color:grey">Slide 2</div>
+        <div class="swiper-slide" style="background-color:grey"> 
+          <div class="inset">
+            <div data-swiper-parallax-x="-500" data-swiper-parallax-duration="1500">Slide 2</div>
+            <div class="title" data-swiper-parallax-x="-100" data-swiper-parallax-duration="1500">Slide 1</div>
+            <div data-swiper-parallax-opacity="0.5" data-swiper-parallax-duration="1500">I will change opacity</div>
+            <div data-swiper-parallax-scale="0.15" data-swiper-parallax-duration="1500">I will change scale</div>
+          </div>
+        </div>
         <div class="swiper-slide" style="background-color:brown">Slide 3</div>
       </div>
       <div class="swiper-pagination"></div>

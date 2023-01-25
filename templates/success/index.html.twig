@@ -6,43 +6,50 @@
 
 {% block body %}
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h1> Manifest </h1>
-                <form action="../../form-result.php" target="_blank">
-
-                <p>Actualitzar Manifest:</p>
-
-                <p><textarea name="mensaje"> 
-                {{ LatestUpdate }}
-                </textarea></p>
-
-                <p><input type="submit" value="actualitzar manifest"></p>
-
-                </form>
+{% for message in app.session.flashbag().get('Message')  %}
+    <div class="alert-message-success" data-module="alertMessages">
+        <div class="wrap">
+            <span>{{ message }} </span>
         </div>
     </div>
+{% endfor %}
 
-</div>
+<section class="admin-header-suply" data-module="aceEditor">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <section class="wrap" >
+                
+                
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h1> Les meves actualitzacions </h1>
-                {% for MyUpdate in MyUpdates %}
-                <div>
-                    {{ MyUpdate }}
-                    
-                   
-                   
-                </div>
-            {% endfor %}
+                <h1 class="title"> Editar Manifest </h1>
+                    <div id="javascript-editor"> {{ LatestUpdate }}  </div>
+                    <form action="/success" class="mt-2" method="post">
+                        <input type="hidden" value="" name="content" id="content"/>
+                        <div class="mb-4">
+                            <button type="submit" class="btn btn-dark btn-block ">Actualitzar manifest</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
-
-</div>
-
+</section>
+<section class="myupdates">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1> Les meves actualitzacions </h1>
+                    {% for MyUpdate in MyUpdates %}
+                    <div class="manifestUpdates">
+                        {{ MyUpdate.getContent() | raw }}
+                        <span class="dataactualizacio"> {{ MyUpdate.getupdatedat() |date('d-m-Y') }} </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
 {# {{ dump(app.user) }} #}
 
 {% endblock %}

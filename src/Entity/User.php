@@ -80,9 +80,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
      */
     private $Manifest;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="user")
+     */
+    private $Blog;
+
     public function __construct()
     {
         $this->Manifest = new ArrayCollection();
+        $this->Blog = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -235,6 +241,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     public function getManifests():Collection{
         return $this->Manifest;
 
+    }
+
+     /**
+     * @return Collection|Manifest[]
+     */
+    public function getBlog():Collection{
+        return $this->Blog;
+
+    }
+
+    /**
+     * @return Collection<int, Manifest>
+     */
+    public function getManifest(): Collection
+    {
+        return $this->Manifest;
+    }
+
+    public function addManifest(Manifest $manifest): self
+    {
+        if (!$this->Manifest->contains($manifest)) {
+            $this->Manifest[] = $manifest;
+            $manifest->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeManifest(Manifest $manifest): self
+    {
+        if ($this->Manifest->removeElement($manifest)) {
+            // set the owning side to null (unless already changed)
+            if ($manifest->getUser() === $this) {
+                $manifest->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function addBlog(Blog $blog): self
+    {
+        if (!$this->Blog->contains($blog)) {
+            $this->Blog[] = $blog;
+            $blog->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlog(Blog $blog): self
+    {
+        if ($this->Blog->removeElement($blog)) {
+            // set the owning side to null (unless already changed)
+            if ($blog->getUser() === $this) {
+                $blog->setUser(null);
+            }
+        }
+
+        return $this;
     }
 
 }

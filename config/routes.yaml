@@ -26,6 +26,17 @@ Newsletter:
     path: /newsletter
     controller: App\Controller\NewsletterController::index
 
+updateManifest:
+    path: /updatemanifest
+    controller: App\Controller\SuccessController::updateManifest
+
+entradastep2:    
+    path: /blog/{id}
+    controller: App\Controller\BlogController::entradasegonpas
+    methods: [POST,GET]
+    requirements:
+        id: '[0-9]+'  
+
 logout:
     path: /logout
 

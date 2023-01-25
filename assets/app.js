@@ -33,3 +33,14 @@ require('bootstrap');
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
+
+var ace = require('brace');
+require('brace/mode/javascript');
+require('brace/theme/monokai');
+
+/*var editor = ace.edit('javascript-editor');
+editor.getSession().setMode('ace/mode/javascript');
+editor.setTheme('ace/theme/monokai');
+editor.getSession().setUseWorker(false);
+console.log(editor.getValue());
+*/
